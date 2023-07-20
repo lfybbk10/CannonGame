@@ -7,4 +7,8 @@
     public static readonly GameEvent OnLeftMouseDown = new();
     
     public static readonly GameEvent<float> OnCannonBallHit = new();
+    
+    public static readonly GameEvent<int> OnScoreChanged = new();
+    
+    public static readonly GameEvent OnDifficultyIncreased = new();
 }

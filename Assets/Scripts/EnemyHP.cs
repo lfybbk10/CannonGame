@@ -21,8 +21,13 @@ public class EnemyHP : MonoBehaviour
         _value -= value;
         if (_value <= 0)
         {
-            Destroy(gameObject);
-            Events.OnEnemyDestroyed.Publish();
+            DestroyEnemy();
         }
+    }
+
+    private void DestroyEnemy()
+    {
+        Destroy(gameObject);
+        Events.OnEnemyDestroyed.Publish();
     }
 }
