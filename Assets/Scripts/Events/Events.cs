@@ -11,4 +11,8 @@
     public static readonly GameEvent<int> OnScoreChanged = new();
     
     public static readonly GameEvent OnDifficultyIncreased = new();
+    
+    public static readonly GameEvent OnKillAllEnemies = new();
+    
+    public static readonly GameEvent<int> OnPauseEnemySpawner = new();
 }

@@ -34,10 +34,12 @@ public class RandomMove : MonoBehaviour
             float velocityX = Random.Range(-1f, 1f);
             float velocityZ = Random.Range(-1f, 1f);
 
+            
             Vector3 dist = new Vector3(velocityX, 0, velocityZ) * _maxDistance;
 
             Vector3 startPoint = transform.position;
-            Vector3 destination = transform.position + dist;
+            Vector3 destination = RandomFieldPoint.instance.Get();
+            //Vector3 destination = transform.position + dist;
 
             float timer = 0;
             float movementTime = _maxDistance / _currSpeed;

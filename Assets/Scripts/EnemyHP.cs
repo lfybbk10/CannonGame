@@ -9,11 +9,13 @@ public class EnemyHP : MonoBehaviour
     private void OnEnable()
     {
         Events.OnCannonBallHit.Add(GetDamage);
+        Events.OnKillAllEnemies.Add(DestroyEnemy);
     }
 
     private void OnDisable()
     {
         Events.OnCannonBallHit.Remove(GetDamage);
+        Events.OnKillAllEnemies.Remove(DestroyEnemy);
     }
 
     private void GetDamage(float value)

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 
-public class Booster : MonoBehaviour
+public abstract class Booster : MonoBehaviour
 {
-    
+    public abstract void Activate();
 }

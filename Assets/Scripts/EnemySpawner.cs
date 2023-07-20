@@ -13,13 +13,28 @@ public class EnemySpawner : MonoBehaviour
 
     private void OnEnable()
     {
+        Events.OnPauseEnemySpawner.Add(PauseSpawner);
         StartCoroutine(SpawnCoroutine());
     }
 
     private void OnDisable()
     {
+        Events.OnPauseEnemySpawner.Remove(PauseSpawner);
         _spawnTimer = 0;
         StopAllCoroutines();
+    }
+
+    private void PauseSpawner(int timeSec)
+    {
+        StartCoroutine(PauseCoroutine(timeSec));
+    }
+
+    private IEnumerator PauseCoroutine(int timeSec)
+    {
+        _spawnTimer = 0;
+        StopAllCoroutines();
+        yield return new WaitForSeconds(timeSec);
+        StartCoroutine(SpawnCoroutine());
     }
 
     private IEnumerator SpawnCoroutine()
