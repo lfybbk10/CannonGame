@@ -5,11 +5,9 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject _enemyPrefab;
     [SerializeField] private int _spawnIntervalSec;
 
     private float _spawnTimer;
-    
 
     private void OnEnable()
     {
@@ -53,7 +51,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        throw new NotImplementedException();
+        Events.OnEnemySpawned.Publish();
     }
 }
 

@@ -29,7 +29,7 @@ public class EnemyHP : MonoBehaviour
 
     private void DestroyEnemy()
     {
-        Destroy(gameObject);
         Events.OnEnemyDestroyed.Publish();
+        Events.OnEnemyReleased.Publish(gameObject);
     }
 }
