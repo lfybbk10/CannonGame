@@ -10,11 +10,13 @@ public class EnemyCounter : MonoBehaviour
     private void OnEnable()
     {
         Events.OnEnemySpawned.Add(IncreaseCount);
+        Events.OnEnemyDestroyed.Add(DecreaseCount);
     }
 
     private void OnDisable()
     {
         Events.OnEnemySpawned.Remove(IncreaseCount);
+        Events.OnEnemyDestroyed.Add(DecreaseCount);
     }
 
     private void IncreaseCount()
@@ -24,5 +26,10 @@ public class EnemyCounter : MonoBehaviour
         {
             Events.OnLose.Publish();
         }
+    }
+
+    private void DecreaseCount()
+    {
+        _countEnemies--;
     }
 }
