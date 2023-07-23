@@ -22,6 +22,7 @@ public class EnemyCounter : MonoBehaviour
     private void IncreaseCount()
     {
         _countEnemies++;
+        Events.OnChangeEnemiesCount.Publish(_countEnemies);
         if (_countEnemies >= _maxCountEnemies)
         {
             Events.OnLose.Publish();
@@ -31,5 +32,6 @@ public class EnemyCounter : MonoBehaviour
     private void DecreaseCount()
     {
         _countEnemies--;
+        Events.OnChangeEnemiesCount.Publish(_countEnemies);
     }
 }

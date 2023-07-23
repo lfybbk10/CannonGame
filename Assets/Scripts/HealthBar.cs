@@ -27,7 +27,7 @@ public class HealthBar : MonoBehaviour
 
     private void OnEnable()
     {
-        _image.fillAmount = _hp.GetValue()/_hp.GetMaxValue();
+        _image.fillAmount = _hp.GetValue() / _hp.GetMaxValue();
         _hp.OnValueChanged += UpdateBar;
     }
 
