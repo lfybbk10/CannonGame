@@ -7,5 +7,6 @@ public abstract class Booster : MonoBehaviour, IHittable
     public void GetHit(float hitValue)
     {
         Activate();
+        Destroy(gameObject);
     }
 }

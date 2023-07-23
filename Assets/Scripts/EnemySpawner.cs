@@ -38,7 +38,7 @@ public class EnemySpawner : MonoBehaviour
     private IEnumerator PauseCoroutine(int timeSec)
     {
         _spawnTimer = 0;
-        StopAllCoroutines();
+        StopCoroutine(SpawnCoroutine());
         yield return new WaitForSeconds(timeSec);
         StartCoroutine(SpawnCoroutine());
     }

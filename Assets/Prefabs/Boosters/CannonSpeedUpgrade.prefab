@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6094753647049586689}
   - component: {fileID: 1006124587336654917}
   - component: {fileID: -143115684644636642}
+  - component: {fileID: 8789739471902937073}
   m_Layer: 7
   m_Name: CannonSpeedUpgrade
   m_TagString: Untagged
@@ -94,7 +95,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8434510015467102709}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -123,3 +124,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 742514852bbe486ab2bf29a360c8ec14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8789739471902937073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8434510015467102709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f0cadbf7949464b90ae5b2caa4af34c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _destroyTime: 15

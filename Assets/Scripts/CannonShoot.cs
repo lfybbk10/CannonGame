@@ -10,10 +10,10 @@ public class CannonShoot : MonoBehaviour
     [SerializeField] private float _shootInterval;
     [SerializeField] private float _damageValue;
 
-    private bool isReloading;
+    private bool _isReloading;
 
-    private float _upgradeSpeedStep = 0.7f;
-    private float _upgradeDamageStep = 1.5f;
+    private readonly float _upgradeSpeedStep = 0.7f;
+    private readonly float _upgradeDamageStep = 1.5f;
 
     private void OnEnable()
     {
@@ -31,7 +31,7 @@ public class CannonShoot : MonoBehaviour
 
     private void Shoot()
     {
-        if(isReloading)
+        if(_isReloading)
             return;
 
         Vector3 mousePos = UnityEngine.Input.mousePosition;
@@ -48,14 +48,14 @@ public class CannonShoot : MonoBehaviour
 
     private IEnumerator Reload()
     {
-        isReloading = true;
+        _isReloading = true;
         yield return new WaitForSeconds(_shootInterval);
-        isReloading = false;
+        _isReloading = false;
     }
 
     private void UpgradeShootSpeed()
     {
-        _shootInterval *= _upgradeDamageStep;
+        _shootInterval *= _upgradeSpeedStep;
     }
 
     private void UpgradeShootDamage()

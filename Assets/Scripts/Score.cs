@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Score : MonoBehaviour
 {
+    [SerializeField] private int _additionValue;
     private int _value;
-    private int _additionValue;
-    
+
     private void OnEnable()
     {
         Events.OnEnemyDestroyed.Add(AddScore);

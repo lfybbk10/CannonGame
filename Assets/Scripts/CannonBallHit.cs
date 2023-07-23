@@ -11,7 +11,6 @@ public class CannonBallHit : MonoBehaviour
     {
         if (_hitMask.Contains(other.gameObject.layer))
         {
-            print("cannon ball hit");
             if (other.TryGetComponent(out IHittable hittable))
             {
                 hittable.GetHit(HitValue);

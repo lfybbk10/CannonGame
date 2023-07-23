@@ -15,16 +15,16 @@ public class EnemyFactory : MonoBehaviour
     private float _currHp;
 
 
-    private void Start()
+    private void Awake()
     {
         _currHp = _startHP;
         _enemyPool = new ObjectPool<GameObject>((() => Instantiate(_enemyPrefabs.GetRandomElem(), new Vector3(0,1,0), Quaternion.identity)),
             (obj =>
             {
                 obj.transform.position = RandomFieldPoint.instance.Get();
-                obj.GetComponent<EnemyHP>().Value = _currHp;
+                obj.GetComponent<EnemyHP>().SetValue(_currHp);
                 obj.SetActive(true);
-            }), (obj => obj.SetActive(false)), Destroy, false, 15, 15);
+            }), (obj => obj.SetActive(false)), Destroy);
     }
 
     private void OnEnable()

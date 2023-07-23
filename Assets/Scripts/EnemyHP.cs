@@ -2,9 +2,12 @@
 using UnityEngine;
 
 
-public class EnemyHP : MonoBehaviour, IHittable
+public class EnemyHP : MonoBehaviour, IHittable, IHP
 {
-    public float Value;
+    public Action<float> OnValueChanged { get; set; }
+    
+    private float _maxValue;
+    private float _value;
 
     private void OnEnable()
     {
@@ -18,8 +21,9 @@ public class EnemyHP : MonoBehaviour, IHittable
 
     public void GetHit(float value)
     {
-        Value -= value;
-        if (Value <= 0)
+        _value -= value;
+        OnValueChanged?.Invoke(_value);
+        if (_value <= 0)
         {
             DestroyEnemy();
         }
@@ -29,5 +33,23 @@ public class EnemyHP : MonoBehaviour, IHittable
     {
         Events.OnEnemyDestroyed.Publish();
         Events.OnEnemyReleased.Publish(gameObject);
+    }
+    
+
+    public float GetMaxValue()
+    {
+        return _maxValue;
+    }
+
+    public float GetValue()
+    {
+        return _value;
+    }
+
+    public void SetValue(float value)
+    {
+        _maxValue = value;
+        _value = value;
+        OnValueChanged?.Invoke(_value);
     }
 }

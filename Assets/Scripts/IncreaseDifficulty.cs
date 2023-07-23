@@ -35,5 +35,6 @@ public class IncreaseDifficulty : MonoBehaviour
     {
         _nextDifficultyScore += _scoreStep;
         Events.OnDifficultyIncreased.Publish();
+        print("diff increase");
     }
 }
