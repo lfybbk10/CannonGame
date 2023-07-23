@@ -6,9 +6,9 @@ public class Input : MonoBehaviour
 {
     private void Update()
     {
-        if (UnityEngine.Input.GetMouseButtonDown(0))
+        if (UnityEngine.Input.GetMouseButton(0))
         {
-            Events.OnLeftMouseDown.Publish();
+            Events.OnLeftMousePressed.Publish();
         }
     }
 }

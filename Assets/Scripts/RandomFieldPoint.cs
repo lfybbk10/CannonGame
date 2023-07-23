@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using Random = UnityEngine.Random;
 
-[RequireComponent(typeof(MeshFilter))]
+[RequireComponent(typeof(BoxCollider))]
 public class RandomFieldPoint : MonoBehaviour
 {
-    private MeshFilter _meshFilter;
+    private BoxCollider _collider;
 
     public static RandomFieldPoint instance;
 
@@ -17,20 +17,17 @@ public class RandomFieldPoint : MonoBehaviour
         }
 
         instance = this;
-        _meshFilter = GetComponent<MeshFilter>();
+        _collider = GetComponent<BoxCollider>();
     }
 
     public Vector3 Get(){
 
-        Mesh planeMesh = _meshFilter.mesh;
-        Bounds bounds = planeMesh.bounds;
+        Bounds bounds = _collider.bounds;
+        float offsetX = Random.Range(-bounds.extents.x, bounds.extents.x);
+        float offsetZ = Random.Range(-bounds.extents.z, bounds.extents.z);
 
-        float minX = gameObject.transform.position.x - gameObject.transform.localScale.x * bounds.size.x * 0.5f;
-        float minZ = gameObject.transform.position.z - gameObject.transform.localScale.z * bounds.size.z * 0.5f;
-
-        Vector3 newVec = new Vector3(Random.Range (minX, -minX),
-            gameObject.transform.position.y,
-            Random.Range (minZ, -minZ));
-        return newVec;
+        Vector3 res = bounds.center + new Vector3(offsetX, 0, offsetZ);
+        res.y = 1;
+        return res;
     }
 }

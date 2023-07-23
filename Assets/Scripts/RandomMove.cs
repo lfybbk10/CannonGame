@@ -1,29 +1,29 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterController))]
+
 public class RandomMove : MonoBehaviour
 {
     [SerializeField] private float _startSpeed;
-    [SerializeField] private float _maxDistance;
-    
-    private CharacterController _characterController;
 
     private float _currSpeed;
 
+    private float _speedStep = 1.3f;
+
     private void Awake()
     {
-        _characterController = GetComponent<CharacterController>();
         _currSpeed = _startSpeed;
     }
 
     private void OnEnable()
     {
+        Events.OnDifficultyIncreased.Add(IncreaseSpeed);
         StartCoroutine(MoveCoroutine());
     }
 
     private void OnDisable()
     {
+        Events.OnDifficultyIncreased.Remove(IncreaseSpeed);
         StopAllCoroutines();
     }
 
@@ -31,18 +31,16 @@ public class RandomMove : MonoBehaviour
     {
         while (true)
         {
-            float velocityX = Random.Range(-1f, 1f);
-            float velocityZ = Random.Range(-1f, 1f);
-
             
-            Vector3 dist = new Vector3(velocityX, 0, velocityZ) * _maxDistance;
-
             Vector3 startPoint = transform.position;
             Vector3 destination = RandomFieldPoint.instance.Get();
-            //Vector3 destination = transform.position + dist;
+
+            float distance = Vector3.Distance(startPoint, destination);
 
             float timer = 0;
-            float movementTime = _maxDistance / _currSpeed;
+            float movementTime = distance / _currSpeed;
+            
+            transform.LookAt(destination);
 
             while (timer < movementTime)
             {
@@ -51,5 +49,10 @@ public class RandomMove : MonoBehaviour
                 yield return new WaitForEndOfFrame();
             }
         }
+    }
+
+    private void IncreaseSpeed()
+    {
+        _currSpeed *= _speedStep;
     }
 }

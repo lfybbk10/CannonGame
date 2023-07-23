@@ -5,29 +5,45 @@ using UnityEngine;
 
 public class CannonShoot : MonoBehaviour
 {
-    [SerializeField] private GameObject _cannonBallPrefab;
+    [SerializeField] private Transform _cannonBallSpawnPoint;
+    [SerializeField] private CannonBallHit _cannonBallPrefab;
     [SerializeField] private float _shootInterval;
+    [SerializeField] private float _damageValue;
 
     private bool isReloading;
 
-    private float _upgradeStep = 0.5f;
+    private float _upgradeSpeedStep = 0.7f;
+    private float _upgradeDamageStep = 1.5f;
 
     private void OnEnable()
     {
-        Events.OnLeftMouseDown.Add(Shoot);
+        Events.OnLeftMousePressed.Add(Shoot);
+        Events.OnUpgradeCannonSpeed.Add(UpgradeShootSpeed);
+        Events.OnUpgradeCannonDamage.Add(UpgradeShootDamage);
     }
 
     private void OnDisable()
     {
-        Events.OnLeftMouseDown.Remove(Shoot);
+        Events.OnLeftMousePressed.Remove(Shoot);
+        Events.OnUpgradeCannonSpeed.Remove(UpgradeShootSpeed);
+        Events.OnUpgradeCannonDamage.Remove(UpgradeShootDamage);
     }
 
     private void Shoot()
     {
-        //спаун в нужной точке и придача силы в нужном направлении
+        if(isReloading)
+            return;
+
+        Vector3 mousePos = UnityEngine.Input.mousePosition;
+        var aim = Camera.main.ScreenToViewportPoint(mousePos);
+        aim.x -= 0.5f;
+        aim.y -= 0.5f;
         
+        var cannonBall = Instantiate(_cannonBallPrefab, _cannonBallSpawnPoint.position, Quaternion.identity);
+        cannonBall.HitValue = _damageValue;
+        cannonBall.GetComponent<Rigidbody>().AddForce(new Vector3(-1,aim.y,aim.x*2)*2000f);
+
         StartCoroutine(Reload());
-        throw new NotImplementedException();
     }
 
     private IEnumerator Reload()
@@ -39,6 +55,11 @@ public class CannonShoot : MonoBehaviour
 
     private void UpgradeShootSpeed()
     {
-        _shootInterval *= _upgradeStep;
+        _shootInterval *= _upgradeDamageStep;
+    }
+
+    private void UpgradeShootDamage()
+    {
+        _damageValue *= _upgradeDamageStep;
     }
 }

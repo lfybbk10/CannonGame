@@ -2,26 +2,24 @@
 using UnityEngine;
 
 
-public class EnemyHP : MonoBehaviour
+public class EnemyHP : MonoBehaviour, IHittable
 {
-    private float _value;
-    
+    public float Value;
+
     private void OnEnable()
     {
-        Events.OnCannonBallHit.Add(GetDamage);
         Events.OnKillAllEnemies.Add(DestroyEnemy);
     }
 
     private void OnDisable()
     {
-        Events.OnCannonBallHit.Remove(GetDamage);
         Events.OnKillAllEnemies.Remove(DestroyEnemy);
     }
 
-    private void GetDamage(float value)
+    public void GetHit(float value)
     {
-        _value -= value;
-        if (_value <= 0)
+        Value -= value;
+        if (Value <= 0)
         {
             DestroyEnemy();
         }
