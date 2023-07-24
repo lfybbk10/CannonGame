@@ -8,7 +8,7 @@ public class InputController : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
-            Events.OnLeftMousePressed.Publish();
+            InputEvents.OnLeftMousePressed.Publish();
         }
     }
 }

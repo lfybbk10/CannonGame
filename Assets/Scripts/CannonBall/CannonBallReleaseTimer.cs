@@ -22,6 +22,6 @@ public class CannonBallReleaseTimer : MonoBehaviour
     private IEnumerator DestroyCoroutine()
     {
         yield return new WaitForSeconds(_releaseTime);
-        Events.OnCannonBallReleased.Publish(_cannonBall);
+        CannonBallEvents.OnCannonBallReleased.Publish(_cannonBall);
     }
 }

@@ -20,12 +20,12 @@ public class BoosterSpawner : MonoBehaviour
 
     private void OnEnable()
     {
-        Events.OnEnemyDestroyed.Add(ReduceEnemyCount);
+        EnemyEvents.OnEnemyDestroyed.Add(ReduceEnemyCount);
     }
 
     private void OnDisable()
     {
-        Events.OnEnemyDestroyed.Remove(ReduceEnemyCount);
+        EnemyEvents.OnEnemyDestroyed.Remove(ReduceEnemyCount);
     }
 
     private void ReduceEnemyCount()

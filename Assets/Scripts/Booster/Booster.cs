@@ -10,7 +10,7 @@ public abstract class Booster : MonoBehaviour, IHittable
     public void GetHit(float hitValue)
     {
         OnGetHit?.Invoke();
-        Events.OnBoosterTaken.Publish();
+        BoosterEvents.OnBoosterTaken.Publish();
         Activate();
         Destroy(gameObject);
     }

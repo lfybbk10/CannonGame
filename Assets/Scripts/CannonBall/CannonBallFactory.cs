@@ -22,12 +22,12 @@ public class CannonBallFactory : MonoBehaviour
 
     private void OnEnable()
     {
-        Events.OnCannonBallReleased.Add(Release);
+        CannonBallEvents.OnCannonBallReleased.Add(Release);
     }
 
     private void OnDisable()
     {
-        Events.OnCannonBallReleased.Remove(Release);
+        CannonBallEvents.OnCannonBallReleased.Remove(Release);
     }
 
     public CannonBallHit Get()

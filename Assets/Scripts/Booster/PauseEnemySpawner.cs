@@ -5,6 +5,6 @@ public class PauseEnemySpawner : Booster
     
     public override void Activate()
     {
-        Events.OnPauseEnemySpawner.Publish(_pauseTimeSec);
+        BoosterEvents.OnPauseEnemySpawner.Publish(_pauseTimeSec);
     }
 }

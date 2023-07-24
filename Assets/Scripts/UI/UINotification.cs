@@ -8,20 +8,20 @@ public class UINotification : MonoBehaviour
 
     private void OnEnable()
     {
-        Events.OnDifficultyIncreased.Add(SetDifficultyIncrease);
-        Events.OnUpgradeCannonDamage.Add(SetUpgradeCannonDamage);
-        Events.OnUpgradeCannonSpeed.Add(SetUpgradeCannonSpeed);
-        Events.OnPauseEnemySpawner.Add(SetPauseSpawner);
-        Events.OnKillAllEnemies.Add(SetKillAllEnemies);
+        GameProgressEvents.OnDifficultyIncreased.Add(SetDifficultyIncrease);
+        BoosterEvents.OnUpgradeCannonDamage.Add(SetUpgradeCannonDamage);
+        BoosterEvents.OnUpgradeCannonSpeed.Add(SetUpgradeCannonSpeed);
+        BoosterEvents.OnPauseEnemySpawner.Add(SetPauseSpawner);
+        BoosterEvents.OnKillAllEnemies.Add(SetKillAllEnemies);
     }
     
     private void OnDisable()
     {
-        Events.OnDifficultyIncreased.Remove(SetDifficultyIncrease);
-        Events.OnUpgradeCannonDamage.Remove(SetUpgradeCannonDamage);
-        Events.OnUpgradeCannonSpeed.Remove(SetUpgradeCannonSpeed);
-        Events.OnPauseEnemySpawner.Remove(SetPauseSpawner);
-        Events.OnKillAllEnemies.Remove(SetKillAllEnemies);
+        GameProgressEvents.OnDifficultyIncreased.Remove(SetDifficultyIncrease);
+        BoosterEvents.OnUpgradeCannonDamage.Remove(SetUpgradeCannonDamage);
+        BoosterEvents.OnUpgradeCannonSpeed.Remove(SetUpgradeCannonSpeed);
+        BoosterEvents.OnPauseEnemySpawner.Remove(SetPauseSpawner);
+        BoosterEvents.OnKillAllEnemies.Remove(SetKillAllEnemies);
     }
     
     private void SetKillAllEnemies()

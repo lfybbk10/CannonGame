@@ -29,16 +29,16 @@ public class EnemyFactory : MonoBehaviour
 
     private void OnEnable()
     {
-        Events.OnEnemySpawned.Add(GetEnemy);
-        Events.OnEnemyReleased.Add(ReleaseEnemy);
-        Events.OnDifficultyIncreased.Add(IncreaseHP);
+        EnemyEvents.OnEnemySpawned.Add(GetEnemy);
+        EnemyEvents.OnEnemyReleased.Add(ReleaseEnemy);
+        GameProgressEvents.OnDifficultyIncreased.Add(IncreaseHP);
     }
 
     private void OnDisable()
     {
-        Events.OnEnemySpawned.Remove(GetEnemy);
-        Events.OnEnemyReleased.Remove(ReleaseEnemy);
-        Events.OnDifficultyIncreased.Remove(IncreaseHP);
+        EnemyEvents.OnEnemySpawned.Remove(GetEnemy);
+        EnemyEvents.OnEnemyReleased.Remove(ReleaseEnemy);
+        GameProgressEvents.OnDifficultyIncreased.Remove(IncreaseHP);
     }
 
     private void GetEnemy()

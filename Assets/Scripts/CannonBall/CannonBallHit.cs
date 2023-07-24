@@ -14,7 +14,7 @@ public class CannonBallHit : MonoBehaviour
             if (other.TryGetComponent(out IHittable hittable))
             {
                 hittable.GetHit(HitValue);
-                Events.OnCannonBallReleased.Publish(this);
+                CannonBallEvents.OnCannonBallReleased.Publish(this);
             }
         }
     }

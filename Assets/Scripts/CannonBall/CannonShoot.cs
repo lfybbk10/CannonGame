@@ -16,16 +16,16 @@ public class CannonShoot : MonoBehaviour
 
     private void OnEnable()
     {
-        Events.OnLeftMousePressed.Add(Shoot);
-        Events.OnUpgradeCannonSpeed.Add(UpgradeShootSpeed);
-        Events.OnUpgradeCannonDamage.Add(UpgradeShootDamage);
+        InputEvents.OnLeftMousePressed.Add(Shoot);
+        BoosterEvents.OnUpgradeCannonSpeed.Add(UpgradeShootSpeed);
+        BoosterEvents.OnUpgradeCannonDamage.Add(UpgradeShootDamage);
     }
 
     private void OnDisable()
     {
-        Events.OnLeftMousePressed.Remove(Shoot);
-        Events.OnUpgradeCannonSpeed.Remove(UpgradeShootSpeed);
-        Events.OnUpgradeCannonDamage.Remove(UpgradeShootDamage);
+        InputEvents.OnLeftMousePressed.Remove(Shoot);
+        BoosterEvents.OnUpgradeCannonSpeed.Remove(UpgradeShootSpeed);
+        BoosterEvents.OnUpgradeCannonDamage.Remove(UpgradeShootDamage);
     }
 
     private void Shoot()

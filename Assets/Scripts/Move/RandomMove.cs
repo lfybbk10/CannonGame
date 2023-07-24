@@ -17,13 +17,13 @@ public class RandomMove : MonoBehaviour
 
     private void OnEnable()
     {
-        Events.OnDifficultyIncreased.Add(IncreaseSpeed);
+        GameProgressEvents.OnDifficultyIncreased.Add(IncreaseSpeed);
         StartCoroutine(MoveCoroutine());
     }
 
     private void OnDisable()
     {
-        Events.OnDifficultyIncreased.Remove(IncreaseSpeed);
+        GameProgressEvents.OnDifficultyIncreased.Remove(IncreaseSpeed);
         StopAllCoroutines();
     }
 

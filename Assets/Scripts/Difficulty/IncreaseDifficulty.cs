@@ -15,12 +15,12 @@ public class IncreaseDifficulty : MonoBehaviour
 
     private void OnEnable()
     {
-        Events.OnScoreChanged.Add(GetChangedScore);
+        ScoreEvents.OnScoreChanged.Add(GetChangedScore);
     }
 
     private void OnDisable()
     {
-        Events.OnScoreChanged.Remove(GetChangedScore);
+        ScoreEvents.OnScoreChanged.Remove(GetChangedScore);
     }
 
     private void GetChangedScore(int value)
@@ -34,7 +34,7 @@ public class IncreaseDifficulty : MonoBehaviour
     private void Increase()
     {
         _nextDifficultyScore += _scoreStep;
-        Events.OnDifficultyIncreased.Publish();
+        GameProgressEvents.OnDifficultyIncreased.Publish();
         print("diff increase");
     }
 }

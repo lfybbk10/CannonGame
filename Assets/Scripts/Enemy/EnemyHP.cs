@@ -13,12 +13,12 @@ public class EnemyHP : MonoBehaviour, IHittable, IHP
 
     private void OnEnable()
     {
-        Events.OnKillAllEnemies.Add(DestroyEnemy);
+        BoosterEvents.OnKillAllEnemies.Add(DestroyEnemy);
     }
 
     private void OnDisable()
     {
-        Events.OnKillAllEnemies.Remove(DestroyEnemy);
+        BoosterEvents.OnKillAllEnemies.Remove(DestroyEnemy);
     }
     
 
@@ -33,14 +33,14 @@ public class EnemyHP : MonoBehaviour, IHittable, IHP
         }
         else
         {
-            Events.OnEnemyDamaged.Publish();
+            EnemyEvents.OnEnemyDamaged.Publish();
         }
     }
 
     private void DestroyEnemy()
     {
-        Events.OnEnemyDestroyed.Publish();
-        Events.OnEnemyReleased.Publish(gameObject);
+        EnemyEvents.OnEnemyDestroyed.Publish();
+        EnemyEvents.OnEnemyReleased.Publish(gameObject);
     }
     
 

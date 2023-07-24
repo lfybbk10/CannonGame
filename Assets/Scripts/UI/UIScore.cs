@@ -15,12 +15,12 @@ public class UIScore : MonoBehaviour
 
     private void OnEnable()
     {
-        Events.OnScoreChanged.Add(UpdateText);
+        ScoreEvents.OnScoreChanged.Add(UpdateText);
     }
 
     private void OnDisable()
     {
-        Events.OnScoreChanged.Remove(UpdateText);
+        ScoreEvents.OnScoreChanged.Remove(UpdateText);
     }
 
     private void UpdateText(int score)

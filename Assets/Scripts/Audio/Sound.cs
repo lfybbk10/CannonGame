@@ -14,16 +14,16 @@ public class Sound : MonoBehaviour
 
     private void OnEnable()
     {
-        Events.OnEnemyDamaged.Add(PlayDamageSound);
-        Events.OnEnemyDestroyed.Add(PlayDeathSound);
-        Events.OnBoosterTaken.Add(PlayDeathSound);
+        EnemyEvents.OnEnemyDamaged.Add(PlayDamageSound);
+        EnemyEvents.OnEnemyDestroyed.Add(PlayDeathSound);
+        BoosterEvents.OnBoosterTaken.Add(PlayDeathSound);
     }
 
     private void OnDisable()
     {
-        Events.OnEnemyDamaged.Remove(PlayDamageSound);
-        Events.OnEnemyDestroyed.Remove(PlayDeathSound);
-        Events.OnBoosterTaken.Remove(PlayDeathSound);
+        EnemyEvents.OnEnemyDamaged.Remove(PlayDamageSound);
+        EnemyEvents.OnEnemyDestroyed.Remove(PlayDeathSound);
+        BoosterEvents.OnBoosterTaken.Remove(PlayDeathSound);
     }
 
     private void PlayDamageSound() => _audioSource.PlayOneShot(_damage);

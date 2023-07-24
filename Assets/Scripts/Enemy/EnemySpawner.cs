@@ -20,12 +20,12 @@ public class EnemySpawner : MonoBehaviour
 
     private void OnEnable()
     {
-        Events.OnPauseEnemySpawner.Add(PauseSpawner);
+        BoosterEvents.OnPauseEnemySpawner.Add(PauseSpawner);
     }
 
     private void OnDisable()
     {
-        Events.OnPauseEnemySpawner.Remove(PauseSpawner);
+        BoosterEvents.OnPauseEnemySpawner.Remove(PauseSpawner);
         _spawnTimer = 0;
         StopAllCoroutines();
     }
@@ -58,7 +58,7 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    private void SpawnEnemy() => Events.OnEnemySpawned.Publish();
+    private void SpawnEnemy() => EnemyEvents.OnEnemySpawned.Publish();
 
     private void ResetInterval() => _currInterval = Random.Range(1, _maxSpawnIntervalSec);
 }

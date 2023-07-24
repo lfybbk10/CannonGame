@@ -14,12 +14,12 @@ public class UICountEnemies : MonoBehaviour
 
     private void OnEnable()
     {
-        Events.OnChangeEnemiesCount.Add(UpdateText);
+        EnemyEvents.OnChangeEnemiesCount.Add(UpdateText);
     }
 
     private void OnDisable()
     {
-        Events.OnChangeEnemiesCount.Remove(UpdateText);
+        EnemyEvents.OnChangeEnemiesCount.Remove(UpdateText);
     }
 
     private void UpdateText(int count)

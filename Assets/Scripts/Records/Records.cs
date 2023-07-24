@@ -28,12 +28,12 @@ public class Records : MonoBehaviour
 
     private void OnEnable()
     {
-        Events.OnScoreSaved.Add(AddNewScore);
+        ScoreEvents.OnScoreSaved.Add(AddNewScore);
     }
     
     private void OnDisable()
     {
-        Events.OnScoreSaved.Add(AddNewScore);
+        ScoreEvents.OnScoreSaved.Add(AddNewScore);
     }
 
     private void AddNewScore(int result)

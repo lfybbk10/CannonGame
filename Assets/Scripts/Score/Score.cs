@@ -9,16 +9,16 @@ public class Score : MonoBehaviour
 
     private void OnEnable()
     {
-        Events.OnEnemyDestroyed.Add(AddScore);
-        Events.OnScoreAdded.Add(AddScoreValue);
-        Events.OnLose.Add(SendScore);
+        EnemyEvents.OnEnemyDestroyed.Add(AddScore);
+        ScoreEvents.OnScoreAdded.Add(AddScoreValue);
+        GameProgressEvents.OnLose.Add(SendScore);
     }
 
     private void OnDisable()
     {
-        Events.OnEnemyDestroyed.Remove(AddScore);
-        Events.OnLose.Remove(SendScore);
-        Events.OnScoreAdded.Remove(AddScoreValue);
+        EnemyEvents.OnEnemyDestroyed.Remove(AddScore);
+        GameProgressEvents.OnLose.Remove(SendScore);
+        ScoreEvents.OnScoreAdded.Remove(AddScoreValue);
     }
 
     private void AddScore()
@@ -29,12 +29,12 @@ public class Score : MonoBehaviour
     private void AddScoreValue(int value)
     {
         _value += value;
-        Events.OnScoreChanged.Publish(_value);
+        ScoreEvents.OnScoreChanged.Publish(_value);
     }
 
     private void SendScore()
     {
-        Events.OnScoreSaved.Publish(_value);
+        ScoreEvents.OnScoreSaved.Publish(_value);
     }
 
     public int GetValue() => _value;
