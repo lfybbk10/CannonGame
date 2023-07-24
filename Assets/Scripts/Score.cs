@@ -10,6 +10,7 @@ public class Score : MonoBehaviour
     private void OnEnable()
     {
         Events.OnEnemyDestroyed.Add(AddScore);
+        Events.OnScoreAdded.Add(AddScoreValue);
         Events.OnLose.Add(SendScore);
     }
 
@@ -17,15 +18,20 @@ public class Score : MonoBehaviour
     {
         Events.OnEnemyDestroyed.Remove(AddScore);
         Events.OnLose.Remove(SendScore);
+        Events.OnScoreAdded.Remove(AddScoreValue);
     }
 
     private void AddScore()
     {
-        _value += _additionValue;
+        AddScoreValue(_additionValue);
+    }
+
+    private void AddScoreValue(int value)
+    {
+        _value += value;
         Events.OnScoreChanged.Publish(_value);
     }
-    
-    
+
     private void SendScore()
     {
         Events.OnScoreSaved.Publish(_value);

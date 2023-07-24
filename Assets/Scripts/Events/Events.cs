@@ -28,6 +28,7 @@ public static class Events
     public static readonly GameEvent OnBoosterTaken = new();
     
     public static readonly GameEvent<int> OnScoreSaved = new();
+    public static readonly GameEvent<int> OnScoreAdded = new();
     
     public static readonly GameEvent<CannonBallHit> OnCannonBallReleased = new();
     
