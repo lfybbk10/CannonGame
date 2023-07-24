@@ -27,6 +27,10 @@ public class EnemyHP : MonoBehaviour, IHittable, IHP
         {
             DestroyEnemy();
         }
+        else
+        {
+            Events.OnEnemyDamaged.Publish();
+        }
     }
 
     private void DestroyEnemy()

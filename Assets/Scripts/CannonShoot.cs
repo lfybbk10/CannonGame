@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class CannonShoot : MonoBehaviour
 {
-    [SerializeField] private Transform _cannonBallSpawnPoint;
-    [SerializeField] private CannonBallHit _cannonBallPrefab;
+    [SerializeField] private CannonBallFactory _cannonBallFactory;
     [SerializeField] private float _shootInterval;
     [SerializeField] private float _damageValue;
 
@@ -38,8 +37,8 @@ public class CannonShoot : MonoBehaviour
         var aim = Camera.main.ScreenToViewportPoint(mousePos);
         aim.x -= 0.5f;
         aim.y -= 0.5f;
-        
-        var cannonBall = Instantiate(_cannonBallPrefab, _cannonBallSpawnPoint.position, Quaternion.identity);
+
+        var cannonBall = _cannonBallFactory.Get();
         cannonBall.HitValue = _damageValue;
         cannonBall.GetComponent<Rigidbody>().AddForce(new Vector3(-1,aim.y,aim.x*2)*2000f);
 

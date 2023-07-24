@@ -22,4 +22,13 @@ public static class Events
     public static readonly GameEvent OnUpgradeCannonSpeed = new();
     
     public static readonly GameEvent OnUpgradeCannonDamage = new();
+    
+    public static readonly GameEvent OnEnemyDamaged = new();
+    
+    public static readonly GameEvent OnBoosterTaken = new();
+    
+    public static readonly GameEvent<int> OnScoreSaved = new();
+    
+    public static readonly GameEvent<CannonBallHit> OnCannonBallReleased = new();
+    
 }

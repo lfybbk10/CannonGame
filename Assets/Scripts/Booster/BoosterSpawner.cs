@@ -8,8 +8,8 @@ public class BoosterSpawner : MonoBehaviour
 {
     [SerializeField] private List<Booster> _boosterPrefabs;
 
-    private readonly int _minNecessaryCountEnemies = 1;
-    private readonly int _maxNecessaryCountEnemies = 1;
+    private readonly int _minNecessaryCountEnemies = 2;
+    private readonly int _maxNecessaryCountEnemies = 4;
 
     private int _currNecessaryCountEnemies;
 
