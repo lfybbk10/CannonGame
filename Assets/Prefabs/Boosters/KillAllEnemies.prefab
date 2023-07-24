@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -1776407016147540584}
   - component: {fileID: 4380830218811289734}
   - component: {fileID: -4691665501664994676}
+  - component: {fileID: -4290672106905482176}
   m_Layer: 7
   m_Name: KillAllEnemies
   m_TagString: Untagged
@@ -98,8 +99,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 34.31964, y: 1, z: 1}
+  m_Center: {x: -0.41039065, y: 0, z: 0}
 --- !u!114 &-1776407016147540584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,3 +138,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _destroyTime: 15
+--- !u!114 &-4290672106905482176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8434510015467102709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1499ab606d2a42de8b9a4690362a22ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _particlePrefab: {fileID: 8287029705007897432, guid: 2eb113a257bedfc4b972d2929e58fd79, type: 3}

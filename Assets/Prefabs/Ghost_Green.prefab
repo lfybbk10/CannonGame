@@ -140,6 +140,7 @@ GameObject:
   - component: {fileID: 1169664400320361739}
   - component: {fileID: 7754411254391889549}
   - component: {fileID: 7512318127859265611}
+  - component: {fileID: 9104002350879501784}
   m_Layer: 6
   m_Name: Ghost_Green
   m_TagString: Untagged
@@ -238,6 +239,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canvas: {fileID: 3488707842289999586}
   _image: {fileID: 7795054342809074057}
+--- !u!114 &9104002350879501784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010538092382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1499ab606d2a42de8b9a4690362a22ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _particlePrefab: {fileID: 7561178296123882477, guid: e26b737e81686264b9ae3c34065bd8e1, type: 3}
 --- !u!1 &1000011621446260
 GameObject:
   m_ObjectHideFlags: 0

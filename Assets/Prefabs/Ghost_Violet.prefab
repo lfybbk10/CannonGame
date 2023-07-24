@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 5051970014219769058}
   - component: {fileID: -4120345088818219773}
   - component: {fileID: 6053468087016144466}
+  - component: {fileID: 3956427806794609572}
   m_Layer: 6
   m_Name: Ghost_Violet
   m_TagString: Untagged
@@ -208,6 +209,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canvas: {fileID: 7909320017194598624}
   _image: {fileID: 8772268892485876034}
+--- !u!114 &3956427806794609572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000011296433714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1499ab606d2a42de8b9a4690362a22ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _particlePrefab: {fileID: 7561178296123882477, guid: e26b737e81686264b9ae3c34065bd8e1, type: 3}
 --- !u!1 &1000011724214278
 GameObject:
   m_ObjectHideFlags: 0

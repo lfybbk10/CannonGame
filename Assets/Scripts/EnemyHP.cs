@@ -6,6 +6,8 @@ public class EnemyHP : MonoBehaviour, IHittable, IHP
 {
     public Action<float> OnValueChanged { get; set; }
     
+    public Action OnGetHit { get; set; }
+    
     private float _maxValue;
     private float _value;
 
@@ -18,11 +20,13 @@ public class EnemyHP : MonoBehaviour, IHittable, IHP
     {
         Events.OnKillAllEnemies.Remove(DestroyEnemy);
     }
+    
 
     public void GetHit(float value)
     {
         _value -= value;
         OnValueChanged?.Invoke(_value);
+        OnGetHit?.Invoke();
         if (_value <= 0)
         {
             DestroyEnemy();

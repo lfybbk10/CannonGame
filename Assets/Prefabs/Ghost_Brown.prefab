@@ -78,13 +78,14 @@ GameObject:
   - component: {fileID: 1337170888413345712}
   - component: {fileID: 1240502860387615501}
   - component: {fileID: 8868158783861419401}
+  - component: {fileID: 6353492620263808775}
   m_Layer: 6
   m_Name: Ghost_Brown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4000010213081396
 Transform:
   m_ObjectHideFlags: 0
@@ -176,6 +177,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canvas: {fileID: 2856135676131444527}
   _image: {fileID: 1270202642836287534}
+--- !u!114 &6353492620263808775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000011148102054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1499ab606d2a42de8b9a4690362a22ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _particlePrefab: {fileID: 7561178296123882477, guid: e26b737e81686264b9ae3c34065bd8e1, type: 3}
 --- !u!1 &1000011199946392
 GameObject:
   m_ObjectHideFlags: 0
