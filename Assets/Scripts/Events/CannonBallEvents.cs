@@ -1,5 +1,5 @@
 ﻿
 public static class CannonBallEvents
 {
-    public static readonly GameEvent<CannonBallHit> OnCannonBallReleased = new();
+    public static readonly GameEvent<CannonBallHit> OnCannonBallReleased = new GameEvent<CannonBallHit>();
 }
