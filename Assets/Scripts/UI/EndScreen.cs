@@ -13,12 +13,12 @@ public class EndScreen : MonoBehaviour
 
     private void OnEnable()
     {
-        Events.OnLose.Add(Activate);
+        GameProgressEvents.OnLose.Add(Activate);
     }
 
     private void OnDisable()
     {
-        Events.OnLose.Remove(Activate);
+        GameProgressEvents.OnLose.Remove(Activate);
     }
 
     private void Activate()
